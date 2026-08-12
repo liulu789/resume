@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>刘露 - 个人主页 | 哈尔滨工业大学</title>
+    <style>
+        :root {
+            --primary-color: #0f172a;
+            --accent-color: #0284c7;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #334155;
+            --text-muted: #64748b;
+            --border-color: #e2e8f0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding-bottom: 60px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ================= Header 头部样式 ================= */
+        header {
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+
+        /* 个人信息卡片 */
+        .hero-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 30px;
+            background: #1e293b;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 16px;
+            padding: 30px 40px;
+            box-shadow: 0 10px 25px rgba(15, 23, 42, 0.15);
+        }
+
+        .hero-text {
+            flex: 1;
+        }
+
+        .hero-text h1 {
+            font-size: 2.2rem;
+            color: #ffffff;
+            font-weight: 700;
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+        }
+
+        .hero-text .subtitle {
+            font-size: 1.05rem;
+            color: #38bdf8;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .hero-text .tagline {
+            font-size: 0.92rem;
+            color: #cbd5e1;
+            margin-bottom: 18px;
+            line-height: 1.6;
+        }
+
+        .contact-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .contact-item {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            padding: 6px 14px;
+            border-radius: 20px;
+            color: #e2e8f0;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: all 0.25s ease;
+        }
+
+        .contact-item:hover {
+            background: rgba(56, 189, 248, 0.2);
+            border-color: #38bdf8;
+            color: #ffffff;
+        }
+
+        /* 右侧证件照 */
+        .hero-avatar {
+            flex-shrink: 0;
+        }
+
+        .hero-avatar img {
+            width: 120px;
+            height: 160px;
+            object-fit: cover;
+            border-radius: 10px;
+            border: 2px solid rgba(255, 255, 255, 0.25);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .hero-avatar img:hover {
+            transform: translateY(-3px);
+            border-color: #38bdf8;
+        }
+
+        /* Section Cards */
+        .section {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 28px 32px;
+            margin-bottom: 28px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+        }
+
+        .section-title {
+            font-size: 1.3rem;
+            color: var(--primary-color);
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+        }
+
+        .section-title::before {
+            content: "";
+            display: inline-block;
+            width: 4px;
+            height: 18px;
+            background-color: var(--accent-color);
+            border-radius: 2px;
+        }
+
+        /* Timeline / Item Style */
+        .item-card {
+            margin-bottom: 20px;
+        }
+
+        .item-card:last-child {
+            margin-bottom: 0;
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            margin-bottom: 6px;
+        }
+
+        .item-title {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .item-date {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .item-sub {
+            font-size: 0.9rem;
+            color: var(--accent-color);
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .item-desc {
+            font-size: 0.92rem;
+            color: var(--text-main);
+            padding-left: 18px;
+        }
+
+        .item-desc li {
+            margin-bottom: 6px;
+        }
+
+        /* Tag Pill */
+        .tag-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .tag {
+            background: #f1f5f9;
+            color: #475569;
+            font-size: 0.82rem;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-weight: 500;
+        }
+
+        .tag.accent {
+            background: #e0f2fe;
+            color: #0369a1;
+        }
+
+        /* Publications */
+        .pub-item {
+            padding: 12px 16px;
+            background: #f8fafc;
+            border-left: 3px solid var(--accent-color);
+            border-radius: 0 8px 8px 0;
+            margin-bottom: 12px;
+            font-size: 0.92rem;
+        }
+
+        .pub-title {
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 4px;
+        }
+
+        .pub-authors {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-bottom: 4px;
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 16px;
+        }
+
+        .skill-box {
+            background: #f8fafc;
+            padding: 14px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        .skill-box h4 {
+            font-size: 0.9rem;
+            color: var(--primary-color);
+            margin-bottom: 8px;
+        }
+
+       
+        .banner-box {
+            width: 100%;
+            max-width: 1000px;
+            margin: 40px auto 20px auto;
+            background: transparent;
+            border: none;
+            box-shadow: none;
+        }
+
+        .banner-img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: contain;
+            mix-blend-mode: multiply; /* 自动过滤动图白底，实现透明融合 */
+        }
+
+        footer {
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <!-- 个人基本信息卡片 -->
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>刘 露</h1>
+                    <div class="subtitle">哈尔滨工业大学 · 能源动力硕士研究生（专业排名50%）</div>
+                    <div class="tagline">聚焦“AI + 热物理”交叉领域，熟悉电子设备热管控、降维代理模型（NI-ROM/POD）与数字孪生技术。</div>
+                    <div class="contact-bar">
+                        <span class="contact-item">📧 ll19862534479@163.com</span>
+                        <span class="contact-item">📱 (+86) 198-6253-4479</span>
+                        <span class="contact-item">📍 山东菏泽 / 哈尔滨</span>
+                        <span class="contact-item">熟悉领域：热设计 / 仿真 / AI机器学习+热管控/数据分析</span>
+                    </div>
+                </div>
+                <!-- 右侧证件照区域 -->
+                <div class="hero-avatar">
+                    <img src="刘露.jpg" alt="刘露 证件照">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- 自我评价 -->
+        <section class="section">
+            <h2 class="section-title">自我评价</h2>
+            <p style="font-size: 0.95rem; line-height: 1.8; color: var(--text-main); text-align: justify;">
+                具备硬件测试与热仿真工程经验，曾搭建多工况模拟负载物理实验台、PCB模块高低温环境测试平台以及石墨烯均温板导热系数测试平台，熟悉电子元器件及整机的性能测试与实验数据分析流程，熟练应用6SigmaET、FLOEFD等仿真工具进行建模分析，并结合多项式回归与多层感知机等算法进行数据挖掘与温度预测，完成物理实体与数值仿真的双向标定。参与多项国家基础研究重大项目及中国运载火箭技术研究院外协研发，产出相关领域学术论文及专利，具备实际的工程测试、解决问题与跨学科能力。
+            </p>
+        </section>
+
+        <!-- 教育背景 -->
+        <section class="section">
+            <h2 class="section-title">教育背景</h2>
+            <div class="item-card">
+                <div class="item-header">
+                    <span class="item-title">哈尔滨工业大学</span>
+                    <span class="item-date">2024.09 - 至今</span>
+                </div>
+                <div class="item-sub">硕士研究生 | 能源动力 | 成绩排名50%（已获 2024/2025 研究生二等奖学金）</div>
+                <div class="tag-group">
+                    <span class="tag">高等热力学</span>
+                    <span class="tag">高等流体力学</span>
+                    <span class="tag">高等传热学</span>
+                </div>
+            </div>
+            <div class="item-card" style="margin-top: 20px;">
+                <div class="item-header">
+                    <span class="item-title">山东理工大学</span>
+                    <span class="item-date">2020.09 - 2024.06</span>
+                </div>
+                <div class="item-sub">工学学士 | 能源与动力工程 | 成绩前 30%</div>
+                <div class="tag-group">
+                    <span class="tag">工程热力学</span>
+                    <span class="tag">传热学</span>
+                    <span class="tag">流体力学</span>
+                    <span class="tag">内燃机理论基础</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 科研与工程项目 -->
+        <section class="section">
+            <h2 class="section-title">科研与重大项目经历</h2>
+
+            <div class="item-card">
+                <div class="item-header">
+                    <span class="item-title">基于机器学习的电子设备快速热分析方法研究</span>
+                    <span class="item-date">2024.12 - 至今</span>
+                </div>
+                <div class="item-sub">国家重大项目2(198w)-快响模块负责人 | 研究生课题</div>
+                <ul class="item-desc">
+                    <li><strong>物理实验与高保真建模：</strong> 搭建多工况（恒温/线性变温/变功耗）模拟负载物理实验台，联合 6SigmaET 构建高保真 CFD 瞬态热仿真模型，完成“物理实体-数值仿真”双向标定。</li>
+                    <li><strong>核心降维算法研究：</strong> 提出基于分块本征正交分解的非侵入式代理模型（NI-ROM），融合多层感知机（MLP）与多项式回归，解决复杂三维装配体的模态混合问题，赋予 AI 模型热力学数学透明性。</li>
+                </ul>
+                <div class="tag-group">
+                    <span class="tag accent">6SigmaET</span>
+                    <span class="tag accent">POD降维算法</span>
+                    <span class="tag accent">MLP</span>
+                    <span class="tag accent">物理实验标定</span>
+                </div>
+            </div>
+
+            <hr style="border: 0; border-top: 1px dashed var(--border-color); margin: 20px 0;">
+
+            <div class="item-card">
+                <div class="item-header">
+                    <span class="item-title">航天电子设备热仿真与精准温控外协项目</span>
+                    <span class="item-date">2025.10 - 2025.12</span>
+                </div>
+                <div class="item-sub">中国运载火箭技术研究院（北京） | 外协研发成员</div>
+                <ul class="item-desc">
+                    <li>使用 6SigmaET 对典型 PCB 模块及电子设备整机进行三维建模与热仿真分析，达到航天级预期散热需求。</li>
+                    <li>搭建 PCB 模块及整机热测试实验平台，完成室温与高温环境模拟下的散热性能测试。</li>
+                    <li>运用多项式回归智能学习算法，快速计算与预测电子机箱板卡温度，实现精准温控效果。</li>
+                </ul>
+                <div class="tag-group">
+                    <span class="tag accent">PCB板卡热测试</span>
+                    <span class="tag accent">整机热仿真</span>
+                    <span class="tag accent">智能温控预测</span>
+                </div>
+            </div>
+
+            <hr style="border: 0; border-top: 1px dashed var(--border-color); margin: 20px 0;">
+
+            <div class="item-card">
+                <div class="item-header">
+                    <span class="item-title">热阻技术与石墨烯均温板测试研究</span>
+                    <span class="item-date">2024.09 - 2024.12</span>
+                </div>
+                <div class="item-sub">国家基础研究重大项目1 | 核心参与成员之一</div>
+                <ul class="item-desc">
+                    <li>使用 ANSYS ICEM 完成电子机箱典型 PCB 及机箱壳体的高质量网格划分与建模。</li>
+                    <li>搭建 PCB 石墨烯均温板导热系数测试实验平台，结合 FLOEFD 完成均温板等效导热系数测量与性能测试分析。</li>
+                </ul>
+                <div class="tag-group">
+                    <span class="tag accent">ANSYS ICEM</span>
+                    <span class="tag accent">FLOEFD</span>
+                    <span class="tag accent">石墨烯均温板</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 科研成果 -->
+        <section class="section">
+            <h2 class="section-title">学术论文与科研成果</h2>
+            
+            <div class="pub-item">
+                <div class="pub-title">1. A Study on a Rapid Prediction Method for Transient Temperature Fields in Electronic Devices Based on Block-wise POD and Nonlinear Mapping</div>
+                <div class="pub-authors">第一作者 | 《International Journal of Thermal Sciences》(IJTS, Q1顶刊在投, Manuscript: THESCI-D-26-02425)</div>
+                <div class="pub-authors" style="margin-top: 6px; line-height: 1.6;">提出了一种基于分块本征正交分解与非线性映射的数据驱动型非侵入式降维代理模型 (NLROM)。首先，针对复杂装配体的多介质拓扑特性，采用几何区域分解策略与分块POD算法，对高维物理场进行独立特征提取并压缩至低维潜在空间，有效克服了全局降维时的模态混合与维数灾难问题;其次，引入多项式特征扩展技术，构建了输入工况参数(时间、环境温度)与潜在特征系数之间的多输出非线性回归模型，精准捕捉了瞬态加热过程中的热惯性与边界条件耦合效应。</div>
+            </div>
+
+            <div class="pub-item">
+                <div class="pub-title">2. Pressure-Dependent Pseudo-Critical Inlet Window for Supercritical CO2 Microchannel Cooling: A Three-Dimensional Conjugate Thermo-Hydraulic Analysis</div>
+                <div class="pub-authors">第三作者 | 《International Journal of Thermal Sciences》(IJTS, THESCI_111213)</div>
+                <div class="pub-authors" style="margin-top: 6px; line-height: 1.6;">本文系统研究了基于超临界二氧化碳的微通道散热器在高热流密度及固定雷诺数下的三维流固耦合热-水力响应机制。针对传统研究将近拟临界入口优势归结为经验趋势目缺乏压力调控表征的空白，论文提出了一个受压力调控且可追溯的“拟临界入口窗口”概念，指出了最佳热性能并非发生在入口温度等于拟临界温度处，而实发生在稍低于拟临界温度的特定温度区间内。</div>
+            </div>
+
+            <div class="pub-item">
+                <div class="pub-title">3. 发明专利：一种电子机箱温度场预测方法</div>
+                <div class="pub-authors">学生第二作者 | 国家发明专利（受理中）</div>
+            </div>
+
+            <div class="pub-item">
+                <div class="pub-title">4. 计算机软件著作权：多物理场景热管控数字孪生平台 V1.0</div>
+                <div class="pub-authors">独立/核心开发 | 登记号：2026R11L2622108</div>
+            </div>
+        </section>
+
+        <!-- 技能与荣誉 -->
+        <section class="section">
+            <h2 class="section-title">专业技能与荣誉奖项</h2>
+            <div class="skills-grid">
+                <div class="skill-box">
+                    <h4>热仿真与设计</h4>
+                    <p style="font-size:0.85rem; color:var(--text-muted);">6SigmaET, FLOEFD, ANSYS Workbench</p>
+                </div>
+                <div class="skill-box">
+                    <h4>三维建模与网格</h4>
+                    <p style="font-size:0.85rem; color:var(--text-muted);">Solidworks, CREO, SpaceClaim, ANSYS ICEM</p>
+                </div>
+                <div class="skill-box">
+                    <h4>编程与算法</h4>
+                    <p style="font-size:0.85rem; color:var(--text-muted);">Python (MLP / 多项式回归 / POD算法), Origin</p>
+                </div>
+                <div class="skill-box">
+                    <h4>外语及荣誉</h4>
+                    <p style="font-size:0.85rem; color:var(--text-muted);">CET-4（具备流畅英文学术论文撰写能力）<br>24/25哈工大研究生二等奖学金<br>第七届全国应用型人才综合技能大赛国家三等奖等</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 校训动图横幅 -->
+        <div class="banner-box">
+            <img src="beijing.gif" alt="哈尔滨工业大学校训" class="banner-img">
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2026 刘露 (Liu Lu) - 哈尔滨工业大学 | 个人展示页</p>
+    </footer>
+
+</body>
+</html>
