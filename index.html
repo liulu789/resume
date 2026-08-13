@@ -106,6 +106,9 @@
         /* 右侧证件照 */
         .hero-avatar {
             flex-shrink: 0;
+            display: flex;
+            flex-direction: column; /* 让内部的照片和按钮垂直排列 */
+            align-items: center;
         }
 
         .hero-avatar img {
@@ -121,6 +124,29 @@
         .hero-avatar img:hover {
             transform: translateY(-3px);
             border-color: #38bdf8;
+        }
+        .action-btn {
+            margin-top: 15px; /* 与上方照片的间距 */
+            display: inline-block;
+            background: rgba(56, 189, 248, 0.08); /* 半透明浅蓝背景 */
+            border: 1px solid rgba(56, 189, 248, 0.5);
+            color: #38bdf8;
+            text-decoration: none; /* 去除超链接下划线 */
+            font-size: 0.8rem;
+            padding: 8px 12px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            text-align: center;
+            width: 160px; /* 按钮宽度略宽于照片，显得稳重 */
+            line-height: 1.5;
+        }    
+
+        .action-btn:hover {
+            background: #38bdf8;
+            color: #0f172a; /* 鼠标悬浮时文字变深色 */
+            border-color: #38bdf8;
+            box-shadow: 0 0 15px rgba(56, 189, 248, 0.4); /* 添加发光效果 */
+            transform: translateY(-2px);
         }
 
         /* Section Cards */
@@ -310,6 +336,9 @@
                 <!-- 右侧证件照区域 -->
                 <div class="hero-avatar">
                     <img src="刘露.jpg" alt="刘露 证件照">
+                    <a href="多物理场景热管控平台操作说明书.pdf" target="_blank" class="action-btn">
+                        🔗 点击查看：<br>多物理场景热管控平台
+                    </a>
                 </div>
             </div>
         </div>
