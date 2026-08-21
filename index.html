@@ -9,7 +9,7 @@
             --primary-color: #0f172a;
             --accent-color: #0284c7;
             --bg-color: #f8fafc;
-            --card-bg: #ffffff;
+            --card-bg: rgba(255, 255, 255, 0.85);
             --text-main: #334155;
             --text-muted: #64748b;
             --border-color: #e2e8f0;
@@ -55,10 +55,11 @@
         /* 个人信息卡片 */
         .hero-content {
             display: flex;
+            backdrop-filter: blur(8px);
             justify-content: space-between;
             align-items: center;
             gap: 30px;
-            background: #1e293b;
+            background: rgba(30, 41, 59, 0.85);
             border: 1px solid rgba(255, 255, 255, 0.12);
             border-radius: 16px;
             padding: 30px 40px;
@@ -164,6 +165,7 @@
         /* Section Cards */
         .section {
             background: var(--card-bg);
+            backdrop-filter: blur(8px);
             border-radius: 12px;
             padding: 28px 32px;
             margin-bottom: 28px;
